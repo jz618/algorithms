@@ -62,5 +62,3 @@ var singleNumber = function(nums) {
   // "iterate" through object
     // return the value at that index
 };
-
-// console.log(singleNumber([1, 2, 5, 1, 2]));
