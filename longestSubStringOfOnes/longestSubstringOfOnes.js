@@ -1,3 +1,5 @@
+const expect = require('chai')
+
 /* 
 Problem Statement #
 Given an array containing 0s and 1s, 
