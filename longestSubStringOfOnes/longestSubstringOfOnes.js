@@ -25,6 +25,8 @@ c: none
 e: none
 
 */
+
+import { testAlgo } from '../testAlgo.js';
 function longestSubstringoOfOnes(arr, k) {
   // initial the start of the window, counter of the ones in the window and the running longest subarray
   let windowStart = 0,
@@ -52,3 +54,6 @@ function longestSubstringoOfOnes(arr, k) {
 
   return longestValidSubstring;
 }
+
+const actual = longestSubstringoOfOnes([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2)
+testAlgo(6, actual)
