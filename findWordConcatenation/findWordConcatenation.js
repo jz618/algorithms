@@ -18,8 +18,17 @@ function findWordConcatentation(str, words) {
 
   for (let wordStart = 0; wordStart < maxConcatnationLength; wordStart++) {
 
-    const fixedConstants = {wordStart, wordCount, wordLength, wordMap, str};
-    makeandCheckWord(fixedConstants, indices);
+    const wordsSeen = {};
+
+    for (let j = 0; j < wordCount; j++) {
+      let word = makeWord(wordStart, wordLength, j, str)
+      
+      if (!checkWordValidityAndUpdate(word, wordMap, wordsSeen)) break;
+  
+      if (j + 1 === wordCount) {
+        indices.push(wordStart)
+      }
+    }
   }
 
   return indices;
@@ -36,24 +45,21 @@ function createFrequenceMap (words, map = {}) {
   return map;
 }
 
-function makeandCheckWord(fixedConstants, indices, wordsSeen = {}) {
-  const { wordStart, wordCount, wordLength, wordMap, str } = fixedConstants;
-  for (let j = 0; j < wordCount; j++) {
-    let nextWordIndex = wordStart + (j * wordLength)
-    let word = str.substring(nextWordIndex, nextWordIndex + wordLength) 
-    
-    if (!(word in wordMap)) break;
+function makeWord(wordStart, wordLength, remainderStart, str) {
+  const nextWordIndex = wordStart + (remainderStart * wordLength)
+  return str.substring(nextWordIndex, nextWordIndex + wordLength);
+}
 
-    if (!(word in wordsSeen)) wordsSeen[word] = 0;
+function checkWordValidityAndUpdate (word, wordMap, wordsSeen, valid = true) {
+  if (!(word in wordMap)) valid = false;
 
-    wordsSeen[word]++;
+  if (!(word in wordsSeen)) wordsSeen[word] = 0;
 
-    if (wordsSeen[word] > wordMap[word] || 0) break;
+  wordsSeen[word]++;
 
-    if (j + 1 === wordCount) {
-      indices.push(wordStart)
-    }
-  }
+  if (wordsSeen[word] > wordMap[word] || 0) valid = false;
+
+  return valid;
 }
 /*
 Input: String="catfoxcat", Words=["cat", "fox"]
