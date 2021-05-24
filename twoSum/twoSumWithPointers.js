@@ -8,21 +8,27 @@ Write a function to return the indices of the two numbers
 (i.e. the pair) such that they add up to the given target.
 */
 
-function twoSumWithPointers(arr, target_sum) {
-  let leftPointer = 0;
-  let rightPointer = arr.length - 1;
-  while (leftPointer < rightPointer) {
-    let currentSum = arr[leftPointer] + arr[rightPointer];
-    if (currentSum === target_sum) return [leftPointer, rightPointer];
+function twoSumWithPointers(arr, targetSum) {
+  const pointer = {
+    left: 0,
+    right: arr.length - 1
+  };
 
-    if (target_sum > currentSum) {
-      leftPointer++;
-    } else {
-      rightPointer--;
-    }
+  while (pointer.left < pointer.right) {
+    let currentSum = arr[pointer.left] + arr[pointer.right];
+    if (currentSum === targetSum) return [pointer.left, pointer.right];
+    updatePointers(pointer, targetSum, currentSum);
   }
 
   return [1, -1];
 }
 
+function updatePointers(pointer, targetSum, currentSum) {
+  if (targetSum > currentSum) {
+    pointer.left++;
+    return;
+  }
+  
+  pointer.right--;
+}
 testAlgo([1, 3], twoSumWithPointers([1,2,3,4,6], 6))
