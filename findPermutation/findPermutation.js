@@ -53,7 +53,3 @@ function updateLeftCharacter(char, map, match) {
   }
   return match;
 }
-
-testAlgo(true, findPermutation('aaacb', 'abc'))
-testAlgo(true, findPermutation('bcdxabcdy', 'bcdyabcdx'))
-testAlgo(true, findPermutation('oidbcaf', 'abc'))

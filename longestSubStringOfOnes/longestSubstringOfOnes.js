@@ -54,6 +54,3 @@ function longestSubstringoOfOnes(arr, k) {
 
   return longestValidSubstring;
 }
-
-const actual = longestSubstringoOfOnes([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2)
-testAlgo(6, actual)

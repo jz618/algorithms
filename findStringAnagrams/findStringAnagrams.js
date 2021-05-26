@@ -55,4 +55,3 @@ function updateWindowStart(char, map, matched) {
 
   return matched;
 }
-testAlgo([1, 2], findStringAnagrams("ppqp", "pq"))

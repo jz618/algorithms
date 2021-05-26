@@ -31,5 +31,3 @@ function makeSquare(arr) {
     currentSquareIndex--;
   }
 }
-
-console.log(makeSquare([-2, -1, 0, 2, 3]))

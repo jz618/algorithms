@@ -50,6 +50,3 @@ function wordCountEngine(document) {
   }
   return result;
 }
-
-const test1 = "Every book is a quotation; and every house is a quotation out of all forests, and mines, and stone quarries; and every man is a quotation from all his ancestors. ";
-console.log(wordCountEngine(test1));

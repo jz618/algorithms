@@ -60,8 +60,3 @@ function fruitsInBasket (trees) {
   // return the max
   return maxFruits;
 }
-
-
-console.log(
-  fruitsInBasket(['A', 'B', 'C', 'A', 'C'])
-)

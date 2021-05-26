@@ -61,5 +61,3 @@ function updateLeftCharMatch(char, map, match) {
 
   return match;
 }
-
-testAlgo("bca", findSubstring("abdbca", "abc"))

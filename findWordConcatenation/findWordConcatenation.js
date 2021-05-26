@@ -6,6 +6,11 @@ find all the starting indices of substrings in the given string that are a conca
 It is given that all words are of the same length.
 */
 
+/*
+Input: String="catfoxcat", Words=["cat", "fox"]
+Output: [0, 3]
+Explanation: The two substring containing both the words are "catfox" & "foxcat".
+*/
 function findWordConcatentation(str, words) {
   const indices = [];
   const wordCount = words.length;
@@ -61,10 +66,4 @@ function checkWordValidityAndUpdate (word, wordMap, wordsSeen, valid = true) {
 
   return valid;
 }
-/*
-Input: String="catfoxcat", Words=["cat", "fox"]
-Output: [0, 3]
-Explanation: The two substring containing both the words are "catfox" & "foxcat".
-*/
 
-testAlgo([0, 3], findWordConcatentation("catfoxcat", ["cat", "fox"]))
